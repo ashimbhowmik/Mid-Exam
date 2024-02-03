@@ -27,18 +27,18 @@ class Hall:
     def book_seats(self, id, row, col):
         if id in self.__seats:
             if row > self.__rows or row < 1 or col > self.__cols or col < 1:
-                print("\n-> Invalid Seat Number.\n")
+                print("Invalid Seat Number.\n")
             else:
                 if self.__seats[id][row - 1][col - 1] == 1:
-                    print("\n-> Seat Not Available. Please Try Another one.\n")
+                    print("Seat Not Available. Please Try Another one.\n")
                 else:
                     self.__seats[id][row - 1][col - 1] = 1
-                    print(f"\n-> Seat ({row},{col}) Successfully Booked.\n")
+                    print(f"Seat ({row},{col}) Successfully Booked.\n")
         else:
-            print("\n-> Invalid \n")
+            print("Invalid \n")
 
     def view_show_list(self):
-        print("\n---------- Shows Airing Today ----------")
+        print("---------- Shows Airing Today ----------")
         for show in self.__show_list:
             print(f"Movies Name: {show[1]} \tShow Id: {show[0]} \tTime: {show[2]}")
         print("----------------------------------------\n")
@@ -54,10 +54,10 @@ class Hall:
                     if col == "-":
                         count += 1
                 print("] ")
-            print("\n-> [ 0 ] Available, [ 1 ] Booked")
-            print(f"-> Available Seats: {count}\n")
+            print("[ 0 ] Available, [ 1 ] Booked")
+            print(f"Available Seats: {count}\n")
         else:
-            print("\n-> Invalid Show ID\n")
+            print("Invalid Show ID\n")
 
 counter = Star_Cinema().entry_hall(9, 9, 1)
 counter.entry_show(1, "Solo Leveling", "10:00 AM")
@@ -85,7 +85,7 @@ while True:
         show_id = int(input("Enter Show Id: "))
         tickets_count = int(input("Enter Number of Tickets: "))
         for i in range(tickets_count):
-            print(f"\n{i+1} No Ticket")
+            print(f"{i+1} No Ticket")
             seat_row = int(input("Enter Row No: "))
             seat_col = int(input("Enter Column No: "))
             counter.book_seats(show_id, seat_row, seat_col)
